@@ -6,6 +6,9 @@ from django.db import models
 class Tag(models.Model):
     name = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.name
+
 
 class Wegan(models.Model):
     SEX = (
@@ -13,7 +16,7 @@ class Wegan(models.Model):
         ('F', 'Female')
     )
     name = models.CharField(max_length=200)
-    not_eating_from = models.DateTimeField()
+    not_eating_from = models.DateTimeField(auto_now=True)
     weight = models.FloatField()
     height = models.FloatField()
     sex = models.CharField(max_length=1, choices=SEX, )
