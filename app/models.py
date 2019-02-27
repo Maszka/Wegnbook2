@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from django.db import models
 
@@ -17,7 +17,7 @@ class Wegan(models.Model):
     weight = models.FloatField()
     height = models.FloatField()
     sex = models.CharField(max_length=1, choices=SEX, )
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, null=True)
 
     def body_mass_index(self):
         return self.weight / self.height ** 2
@@ -31,9 +31,9 @@ class Wegan(models.Model):
             return "Overweight"
 
     def status(self):
-        if self.not_eating_from - datetime.now():
+        if self.not_eating_from - datetime.now() < timedelta(days=100):
             return "Noob"
-        if self.not_eating_from - datetime.now():
-            return "herbivore"
+        elif self.not_eating_from - datetime.now() < timedelta(days=200):
+            return "Herbivore"
         else:
             return "The one who does not know meat"
