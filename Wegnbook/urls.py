@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from app.views import AuthorUpdate, AuthorCreate, success
+from app.views import WeganUpdate, WeganCreate, success, list_of_wegans
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('wegan/add/', AuthorCreate.as_view(), name='author-add'),
-    path('wegan/<int:pk>/', AuthorUpdate.as_view(), name='author-update'),
-    path('wegan/success', success, ),
+    path('wegan/add/', WeganCreate.as_view(), name='author-add'),
+    path('wegan/<int:pk>/', WeganUpdate.as_view(), name='author-update'),
+    path('wegan/success', success),
+    path('wegan/list', list_of_wegans),
 
 ]
