@@ -8,15 +8,16 @@
             <th>Weight</th>
             <th>Height</th>
             <th>BMI</th>
+            <th>Physique</th>
         </tr>
         {% for wegan in wegans %}
             <tr>
-                <th>{{ wegan.name }}</th>
-                <th>{{ wegan.weight }}</th>
-                <th>{{ wegan.height }}</th>
-                <th>{{ wegan.body_mass_index }}</th>
-                <th>{{ wegan.physique }}</th>
-
+                <td>{{ wegan.name }}</td>
+                <td>{{ wegan.weight }}</td>
+                <td>{{ wegan.height }}</td>
+                <td>{{ wegan.body_mass_index }}</td>
+                <td>{{ wegan.physique }}</td>
+                <td><a href="{{ wegan.id }}">edit</a></td>
             </tr>
         {% endfor %}
     </table>
