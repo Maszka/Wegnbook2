@@ -40,3 +40,6 @@ class Wegan(models.Model):
             return "Herbivore"
         else:
             return "The one who does not know meat"
+
+    def __str__(self):
+        return self.name

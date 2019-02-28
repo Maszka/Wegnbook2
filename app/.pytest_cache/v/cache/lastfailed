@@ -1,0 +1,4 @@
+{
+  "tests.py": true,
+  "tests.py::test_can_create_Wegan_object": true
+}
