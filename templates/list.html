@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Weight</th>
+            <th>Height</th>
+            <th>BMI</th>
+        </tr>
+        {% for wegan in wegans %}
+            <tr>
+                <th>{{ wegan.name }}</th>
+                <th>{{ wegan.weight }}</th>
+                <th>{{ wegan.height }}</th>
+                <th>{{ wegan.body_mass_index }}</th>
+                <th>{{ wegan.physique }}</th>
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
