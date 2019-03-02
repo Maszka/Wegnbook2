@@ -23,7 +23,7 @@ class Wegan(models.Model):
     tags = models.ManyToManyField(Tag, null=True)
 
     def body_mass_index(self):
-        return self.weight / self.height ** 2
+        return round(self.weight / self.height ** 2, 2)
 
     def physique(self):
         if self.body_mass_index() < 18.5:
